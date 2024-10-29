@@ -1,0 +1,129 @@
+body {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Home Page */
+a {
+    margin-top: 10%;
+    text-decoration: none;
+    color: black;
+}
+h1.setBox {
+    font-size: 25px;
+    margin-left: 10%;
+    margin-top: 15%;
+}
+
+h1#home-title {
+    margin-top: 5%;
+    font-size: 45px;
+}
+
+.setBox {
+    display: flex;
+    flex-shrink: 0;
+    background-color: #4d809d;
+    height: 250px;
+    width: 250px;
+    padding-left: 20px;
+    margin-top: 12%;
+    margin-left: 5%;
+}
+
+#setList {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+/*  New Set  */
+#newSet {
+    background-color: #3CB3C2;
+
+}
+
+/* Create Page */
+#setName {
+    display: flex;
+    text-align: left;
+    font-size: 25px;
+    padding-top: 10px;
+    padding-left: 15px;
+    background-color: #4d809d;
+    width: 600px;
+    height: 57px;
+    margin-left: 25%;
+}
+#create-title {
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 25%;
+}
+input[id="setname"] {
+    display: inline;
+    font-size: 20px;
+    font-family: "Nunito", sans-serif;    
+    margin-left: 10px;
+    width: 400px;
+    height: 40px;
+}
+.cardForm {
+    display: flex;
+    justify-content: start;
+    text-align: left;
+    font-size: 25px;
+    padding-top: 15px;
+    padding-left: 15px;
+    background-color: #4d809d;
+    width: 800px;
+    height: 200px;
+    margin-left: 25%;
+}
+.cardFront {
+    display: flex;
+    width: 615px;
+    height: 30px;
+}
+.cardBack {
+    display: flex;
+    resize: none;
+    width: 750px;
+    height: 50px
+}
+.cardNumber {
+    font-family: "Nunito", sans-serif;
+    font-size: 25px;
+    margin-top: 60px;
+    text-align: left;
+    margin-left: 25%;
+
+}
+label[for="cardfront"], label[for="cardback"] {
+    font-size: 20px;
+}
+input[name="cardfront"],input[name="cardback"]{
+    font-family: "Nunito", sans-serif;
+}
+
+/*Add card button*/
+#addCardBtn {
+    margin-top: 40px;
+    margin-left: 25%;
+    width: 815px;
+    height: 50px;
+    border: none;
+    background-color: #3CB3C2;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+}
+#addCard {
+    display: flex;
+    align-items: left;
+    width: 100%;
+}
