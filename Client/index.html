@@ -27,6 +27,46 @@
             <h1>Set Name</h1> <!--input set names/create divs accordingly-->
         </div>
     </container>
+    <script>
+        // Function to add a new card to a set
+async function addCard(front, back, setId) {
+    try {
+        const response = await fetch('/api/cards', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ front, back, setId })
+        });
+        if (!response.ok) throw new Error('Failed to add card');
+        return await response.json();
+    
+    } catch (error) {
+        console.error('Error adding card:', error.message);
+    }
+}
 
+// Function to get all sets
+async function getSets() {
+    try {
+        const response = await fetch('/api/sets');
+        if (!response.ok) throw new Error('Failed to fetch sets');
+        const sets = await response.json();
+        return sets;
+    } catch (error) {
+        console.error('Error fetching sets:', error.message);
+    }
+}
+
+// Function to get all cards in a specific set
+async function getCardsInSet(setId) {
+    try {
+        const response = await fetch(`/api/sets/${setId}/cards`);
+        if (!response.ok) throw new Error('Failed to fetch cards for the set');
+        const cards = await response.json();
+        return cards;
+    } catch (error) {
+        console.error(`Error fetching cards in set ${setId}:`, error.message);
+    }
+}
+    </script>
 </body>
 </html>
