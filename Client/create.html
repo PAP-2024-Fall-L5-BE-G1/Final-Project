@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Nunito Font--> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <!--Montserrat Font--> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">  
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Create</title>
+</head>
+<body>
+    <h1 id="create-title">Create New Set</h1>
+    <div id="setName">
+        <form action=""> <!--Update Action - form info sent to where?-->
+            <label for="setname">Set Name:</label>
+            <input type="text" id="setname" name="setname">
+        </form>
+    </div>
+    <!--COMMENTED OUT BC CSS IS BROKEN SINCE WE ARE CHANGING STRUCTURE OF "CREATE"-->
+    <!-- <h2 class="cardNumber"> Card 1: </h2>
+    <div class="cardForm">
+            <label for="cardfront">Front:</label>
+            <input type="text" id="cardfront" name="cardfront" class="cardFront"> <br>
+            <label for="cardback">Back:</label>
+            <textarea type="text" id="cardback" name="cardback" class="cardBack" rows="4" maxlength="500"> </textarea>
+    </div> -->
+    <div id="addCard"> 
+        <button id="addCardBtn">Add Card</button>
+    </div>
+</body>
+    <!-- Connects to the fetch functions -->
+    <script src = "api.js"></script> 
+    <script>
+        await onCardCreate(front, back, setId);
+    </script>
+</html>
