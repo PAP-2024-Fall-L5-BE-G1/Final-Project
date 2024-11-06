@@ -17,16 +17,26 @@
 </head>
 <body>
     <h1 id="home-title">Cards For All</h1>
-    <container id="setList">
-        <a href="create.html">
-            <div class="setBox" id="newSet">
-                <h1>New set</h1>
+    <div class="setList-wrap">
+        <img src="images/back-arrow.png" alt="" id="back-btn">
+        <div id="setList">
+            <a href="create.html">
+                <div class="setBox" id="newSet"> <!--re-add button feature pls-->
+                    <span> <h1>New set</h1> </span>
+                </div>
+            </a>
+            <div class="setBox" id="[]"> <!--Input id accordingly-->
+                <span> <h1>Set Name</h1> </span>  <!--input set names/create divs accordingly-->
             </div>
-        </a>
-        <div class="setBox" id="[]"> <!--Input id accordingly-->
-            <h1>Set Name</h1> <!--input set names/create divs accordingly-->
+            <div class="setBox" id="[]"> <!--Input id accordingly-->
+                <span> <h1>Set Name</h1> </span>  <!--input set names/create divs accordingly-->
+            </div>
+            <div class="setBox" id="[]"> <!--Input id accordingly-->
+                <span> <h1>Set Name</h1> </span>  <!--input set names/create divs accordingly-->
+            </div>
         </div>
-    </container>
-
+            <img src="images/next-arrow.png" alt="" id="next-btn">
+    </div>
+    <script src="animations.js"></script>
 </body>
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Nunito Font--> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <!--Montserrat Font--> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">  
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Create</title>
+</head>
+<nav>
+    <a href="index.html">
+        <div>
+            <img src="images/cfa-logo.png" alt="" id="home-btn">
+        </div>
+    </a>
+</nav>
+<body>
+    <div class="cardForm-wrap">
+        <h1 id="editset-title"> Edit Set</h1>
+        <div class="cardForm">
+            <form action="">
+                <label for="cardfront">Front:</label>
+                <input type="text" id="cardfront" name="cardfront" class="cardFront"> <br>
+                <label for="cardback">Back:</label>
+                <textarea type="text" id="cardback" name="cardback" class="cardBack" rows="4" maxlength="500"> </textarea>
+                <button type="submit" id="addcard-btn"> Add Card </button>
+            </form>
+        </div>
+    </div>
+    <div class="cardlist-wrap">
+        <div class="cards">
+            <div class="li-card-front-txt">
+                <p>Lorem ipsum</p>
+            </div>
+            <div class="li-card-back-txt">
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="li-card-front-txt">
+                <p>Lorem ipsum</p>
+            </div>
+            <div class="li-card-back-txt">
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
