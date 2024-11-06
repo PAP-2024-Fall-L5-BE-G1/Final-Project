@@ -175,12 +175,13 @@ input[name="cardfront"],textarea[name="cardback"]{
     display: flex;
     justify-content: right;
     align-items: center;
-    width: 65%;
+    width: auto;
+    height: auto;
     font-family: "Nunito", sans-serif;
     font-size: 15px;
     background-color: #4d809d;
     margin-top: 10px;
-    padding-left: 10px;
+    padding-left: 20px;
     padding-right: 40px;
 }
 .li-card-front-txt {
@@ -219,7 +220,7 @@ input[name="cardfront"],textarea[name="cardback"]{
     background-color: rgba(60,178,194,30%);
 }
 
-#card-internal {
+.card__inner {
     display: flex;
     background-color: white;
     align-items: center;
@@ -227,6 +228,25 @@ input[name="cardfront"],textarea[name="cardback"]{
     width: 95vh;
     height: 50vh;
     border-radius: 5px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+.card__inner.is-flipped {
+    transform: rotateY(180deg);
+}
+.card-face {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    position: absolute;
+}
+#card-front h2, #card-back p {
+    font-family: "Nunito", sans-serif;
+}
+#card-back {
+    transform: rotateY(180deg);
 }
 .viewarrow-wrap {
     width: 100%;
