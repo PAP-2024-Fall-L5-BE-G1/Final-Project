@@ -68,6 +68,48 @@ app.get('/api/sets/:setId/cards', (req, res) => {
     });
 });
 
+// this updates a card
+app.put('/api/cards/:cardId', (req, res) => {
+    const { cardId } = req.params;
+    const {front, back, setId} = req.body;
+    const sql = 'UPDATE cards SET front = ?, back = ?, set_id = ? WHERE id = ?';
+    db.run(sql, [front, back, setId, cardId], (err) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({id: cardId, front, back, setId}); // gives back updated card
+    });
+});
+
+// this updates a set
+app.delete('/api/cards/:setId', (req, res) => {
+    const { setId } = req.params;
+    const {name} = req.body;
+    const sql = 'UPDATE sets SET name = ? WHERE id =';
+    db.run(sql, [name], (err) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({id: setId, name}); // gives back updated card
+    });
+});
+
+// this deletes a card
+app.delete('/api/cards/:cardId/delete', (req, res) => {
+    const { cardId } = req.params;
+    const sql = 'DELETE FROM cards WHERE id = ?';
+    db.run(sql, [cardId], (err) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json('card has been deleted');
+    });
+});
+
+// this deletes a set
+app.get('/api/cards/:setId/delete', (req, res) => {
+    const { setId } = req.params;
+    const sql = 'DELETE FROM sets WHERE id = ?';
+    db.run(sql, [setId], (err) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json('set has been deleted');
+    });
+});
+
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
