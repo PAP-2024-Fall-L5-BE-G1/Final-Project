@@ -15,29 +15,23 @@
     <link rel="stylesheet" href="style.css">
     <title>Create</title>
 </head>
+<nav>
+    <a href="index.html">
+        <div>
+            <img src="images/cfa-logo.png" alt="" id="home-btn">
+        </div>
+    </a>
+</nav>
 <body>
-    <h1 id="create-title">Create New Set</h1>
-    <div id="setName">
-        <form action=""> <!--Update Action - form info sent to where?-->
-            <label for="setname">Set Name:</label>
-            <input type="text" id="setname" name="setname">
-        </form>
-    </div>
-    <!--COMMENTED OUT BC CSS IS BROKEN SINCE WE ARE CHANGING STRUCTURE OF "CREATE"-->
-    <!-- <h2 class="cardNumber"> Card 1: </h2>
-    <div class="cardForm">
-            <label for="cardfront">Front:</label>
-            <input type="text" id="cardfront" name="cardfront" class="cardFront"> <br>
-            <label for="cardback">Back:</label>
-            <textarea type="text" id="cardback" name="cardback" class="cardBack" rows="4" maxlength="500"> </textarea>
-    </div> -->
-    <div id="addCard"> 
-        <button id="addCardBtn">Add Card</button>
+    <div class="setName-wrap">
+        <h1 id="create-title">Create New Set</h1>
+        <div id="setName">
+            <form action="add-cards.html" onsubmit=""> <!--Update Action - "onsubmit"-->
+                <label for="setname">Set Name:</label>
+                <input type="text" id="setname" name="setname">
+                <button type="submit" id="newset-btn"> Create </button>
+            </form>
+        </div>
     </div>
 </body>
-    <!-- Connects to the fetch functions -->
-    <script src = "api.js"></script> 
-    <script>
-        await onCardCreate(front, back, setId);
-    </script>
 </html>

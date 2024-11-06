@@ -2,10 +2,14 @@ body {
     text-align: center;
     font-family: "Montserrat", sans-serif;
 }
-
+#home-btn {
+    width: 55px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
 /* Home Page */
 a {
-    margin-top: 10%;
     text-decoration: none;
     color: black;
 }
@@ -19,6 +23,11 @@ h1#home-title {
     margin-top: 5%;
     font-size: 45px;
 }
+#back-btn, #next-btn {
+    width: 80px;
+    cursor: pointer;
+    margin: 10px;
+}
 
 .setBox {
     display: flex;
@@ -27,43 +36,75 @@ h1#home-title {
     height: 250px;
     width: 250px;
     padding-left: 20px;
-    margin-top: 12%;
-    margin-left: 5%;
+    margin-left: 20px;
+}
+
+.setList-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10%;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 #setList {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
-    white-space: nowrap;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
+    width: 850px;
+    align-items: center;
 }
 
 /*  New Set  */
 #newSet {
     background-color: #3CB3C2;
-
 }
 
 /* Create Page */
+.setName-wrap {
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 #setName {
     display: flex;
-    text-align: left;
+    justify-items: center;
+    margin: 10%;
+    margin-top: 15px;
+    border-radius: 10px;
     font-size: 25px;
-    padding-top: 10px;
-    padding-left: 15px;
+    padding-top: 90px;
+    padding-left: 30px;
+    padding-right: 10px;
     background-color: #4d809d;
     width: 600px;
-    height: 57px;
-    margin-left: 25%;
+    height: 150px;
 }
+
 #create-title {
-    text-align: left;
-    margin-top: 50px;
-    margin-left: 25%;
+    margin-top: 10%;
 }
+
+#newset-btn, #addcard-btn {
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #3CB3C2;
+    font-family: "Nunito", sans-serif;    
+}
+
+#newset-btn {
+    margin-top: 115px;
+    height: 30px;
+    width: 60px;
+}
+
 input[id="setname"] {
     display: inline;
     font-size: 20px;
@@ -72,6 +113,16 @@ input[id="setname"] {
     width: 400px;
     height: 40px;
 }
+
+/*Add-Cards page*/
+
+.cardForm-wrap {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+}
 .cardForm {
     display: flex;
     justify-content: start;
@@ -79,11 +130,16 @@ input[id="setname"] {
     font-size: 25px;
     padding-top: 15px;
     padding-left: 15px;
+    padding-bottom: 40px;
+    margin-bottom: 50px;
     background-color: #4d809d;
     width: 800px;
     height: 200px;
-    margin-left: 25%;
 }
+#editset-title {
+    margin-top: 5%;
+}
+
 .cardFront {
     display: flex;
     width: 615px;
@@ -95,35 +151,95 @@ input[id="setname"] {
     width: 750px;
     height: 50px
 }
-.cardNumber {
-    font-family: "Nunito", sans-serif;
-    font-size: 25px;
-    margin-top: 60px;
-    text-align: left;
-    margin-left: 25%;
 
-}
 label[for="cardfront"], label[for="cardback"] {
     font-size: 20px;
 }
-input[name="cardfront"],input[name="cardback"]{
+input[name="cardfront"],textarea[name="cardback"]{
     font-family: "Nunito", sans-serif;
 }
 
-/*Add card button*/
-#addCardBtn {
-    margin-top: 40px;
-    margin-left: 25%;
-    width: 815px;
-    height: 50px;
-    border: none;
-    background-color: #3CB3C2;
-    border-radius: 5px;
-    font-size: 20px;
-    font-family: "Montserrat", sans-serif;
+#addcard-btn {
+    margin-top: 18px;
+    font-size: 15px;
+    width: 90px;
+    height: 30px;
 }
-#addCard {
+.cardlist-wrap {
     display: flex;
-    align-items: left;
     width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.cards {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 65%;
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    background-color: #4d809d;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 40px;
+}
+.li-card-front-txt {
+    display: flex;
+    font-size: 18px;
+    color: white;
+    padding-right: 15px;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: white;
+    margin-right: 10px;
+}
+
+.li-card-back-txt {
+    display: flex;
+    color: white;
+    justify-content: right;
+    flex-grow: 0;
+    width: 800px;
+}
+
+/* View Set */
+.cardview-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.card-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 180px;
+    width: 100vh;
+    height: 55vh;
+    border-radius: 5px;
+    background-color: rgba(60,178,194,30%);
+}
+
+#card-internal {
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    width: 95vh;
+    height: 50vh;
+    border-radius: 5px;
+}
+.viewarrow-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5vh;
+}
+#listbelow-txt {
+    margin-bottom: 9vh;
+}
+#back-card, #next-card {
+    display: flex;
+    width: 40px;
+    margin-bottom: 50px;
+    margin-top: 5px;
 }
