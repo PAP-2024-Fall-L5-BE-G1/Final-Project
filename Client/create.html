@@ -26,7 +26,7 @@
     <div class="setName-wrap">
         <h1 id="create-title">Create New Set</h1>
         <div id="setName">
-            <form action="add-cards.html" onsubmit = ""> <!--Update Action - "onsubmit"-->
+            <form> <!--Update Action - "onsubmit"-->
                 <label for="setname">Set Name:</label>
                 <input type="text" id="setname" name="setname">
                 <button type="submit" id="newset-btn"> Create </button>
@@ -34,5 +34,34 @@
         </div>
     </div>
 </body>
+<script>
+async function addSet() {
+    const name = document.getElementById("setname");
+    const setName = name.value;
+    console.log(setName)
+    try {
+        const response = await fetch('http://localhost:3000/api/sets', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: setName })
+        });
+        if (!response.ok) throw new Error('Failed to add set');
+        return await response.json();
+        
+    } catch (error) {
+        console.error('Error adding card:', error.message);
+    }
+}
+    
+    const btn = document.getElementById("newset-btn");
+    btn.addEventListener('click', onButtonClick);
+    
+    async function onButtonClick(event) {
+        event.preventDefault();
+        const setReturn = await addSet();
+        console.log("added set");
+        location.href = `add-cards.html?setId=${setReturn.id}`;
+    }
+</script>
 
 </html>
