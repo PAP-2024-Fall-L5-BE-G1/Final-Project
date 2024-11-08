@@ -54,4 +54,12 @@
         </div>
     </div>
 </body>
+<script src = "api.js"></script>
+<script>
+    await onSetCreate(setName);
+    addcard-btn.addEventListener('click', async() => { 
+        if(front !== '' && back !== ''){
+            await onCardCreate(front, back, setId)
+        }});
+</script>
 </html>

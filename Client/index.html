@@ -78,6 +78,21 @@ async function getCardsInSet(setId) {
         console.error(`Error fetching cards in set ${setId}:`, error.message);
     }
 }
+    // window.onload = async function () {
+    //     const sets = await getSets();
+    //     const setContainer = document.getElementById("setList");
+    //     sets.forEach((set, i) => {
+    //         const setBox = document.createElement("div");
+    //         setBox.classList.add("setBox");
+    //         setBox.id = i; 
+
+    //         const setName = document.createElement("h1");
+    //         setName.textContent = set.name;
+
+    //         setBox.appendChild(setName);
+    //         setContainer.appendChild(setBox);
+    //     });
+    // }
     </script>
     <script src="animations.js"></script>
 </body>
