@@ -27,19 +27,33 @@ onCardCreate = (front, back, setId) => {
 
 //Get all sets 
 getSet = () => {
-    fetch('/api/sets')
-        .then(res => res.json())
-        .then(data => console.log(data)) // display this data?
-        .catch(error => console.error('Error:', error));
+    return fetch('/api/sets')
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Failed to fetch sets');
+            }
+            return res.json();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            return [];
+        });
 }
 
 
 //Get all cards within a certain set
-getCardsInSet = () => {
-    fetch(`/api/${setId}/:setId/cards`)
-        .then(res => res.json())
-        .then(data => console.log(data)) // display this data?
-        .catch(error => console.error('Error:', error));
+getCardsInSet = (setId) => {
+    return fetch(`/api/${setId}/cards`)
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Failed to fetch cards');
+            }
+            return res.json();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            return [];
+    });
 }
 
 //Updates a card
