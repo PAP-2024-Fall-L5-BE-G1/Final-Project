@@ -54,6 +54,38 @@
         </div>
     </div>
 </body>
-<script src = "api.js"></script>
+<script>
+    let params = new URLSearchParams(document.location.search);
+    let setId = params.get("setId");
+    //get info from front and back
+    //add info to db
+    // Function to add a new card to a set
+    async function addCard(setId) {
+        const front = document.getElementById("cardfront");
+        const back = document.getElementById("back");
+        try {
+            const response = await fetch('/api/cards', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ front, back, setId })
+            });
+            if (!response.ok) throw new Error('Failed to add card');
+            return await response.json();
+        
+        } catch (error) {
+            console.error('Error adding card:', error.message);
+        }
+    }
+    //refreash page keep the current setId there
+    const btn = document.getElementById("addcard-btn");
+    btn.addEventListener('click', onButtonClick);
+    
+    async function onButtonClick(event) {
+        event.preventDefault();
+        await addCard(setId);
+        console.log("added card to set");
+        // location.href = `add-cards.html?setId=${setId}`;
+    }
+</script>
 
 </html>
