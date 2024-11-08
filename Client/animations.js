@@ -1,11 +1,11 @@
 let scrollContainer = document.querySelector("#setList");
 let backBtn = document.getElementById("back-btn");
 let nextBtn = document.getElementById("next-btn");
-const card = document.querySelector('.card__inner');
+// const card = document.querySelector('.card__inner');
 
-card.addEventListener('click', ()=> {
-    card.classList.toggle('is-flipped');
-});
+// card.addEventListener('click', ()=> {
+//     card.classList.toggle('is-flipped');
+// });
 
 scrollContainer.addEventListener('wheel', (e) => {
     e.defaultPrevented();
