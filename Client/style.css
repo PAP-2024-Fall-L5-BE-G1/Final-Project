@@ -175,10 +175,10 @@ input[name="cardfront"],textarea[name="cardback"]{
     display: flex;
     justify-content: right;
     align-items: center;
-    width: auto;
-    height: auto;
+    width: 950px;
+    height: 70px;
     font-family: "Nunito", sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     background-color: #4d809d;
     margin-top: 10px;
     padding-left: 20px;
@@ -186,7 +186,7 @@ input[name="cardfront"],textarea[name="cardback"]{
 }
 .li-card-front-txt {
     display: flex;
-    font-size: 18px;
+    font-size: 15px;
     color: white;
     padding-right: 15px;
     border-right-style: solid;
@@ -198,7 +198,7 @@ input[name="cardfront"],textarea[name="cardback"]{
 .li-card-back-txt {
     display: flex;
     color: white;
-    justify-content: right;
+    justify-content: left;
     flex-grow: 0;
     width: 800px;
 }
