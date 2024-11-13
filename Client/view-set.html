@@ -53,8 +53,9 @@
     </div>
 </body>
 
-<script src = "api.js"></script>
 <script>
+let params = new URLSearchParams(document.location.search);
+let setId = params.get("setId");
 // Function to get all sets
 async function getCardsSets(setId) {
     try {
@@ -106,6 +107,33 @@ async function getCardsSets(setId) {
         card_inner.appendChild(card_face_back);
         cardview.appendChild(card_inner);
         cardsContainer.appendChild(cardview);
+        });
+
+        const cardsContainerList = document.querySelector(".cardlist-wrap");
+        cards.forEach((card, i) => {
+
+            const cards = document.createElement("div");
+            cards.classList.add("cards");
+
+            const cardFront = document.createElement("div");
+            cardFront.classList.add("li-card-front-txt");
+
+            const cardBack = document.createElement("div");
+            cardBack.classList.add("li-card-back-txt");
+
+            const frontTxt = document.createElement("p");
+            frontTxt.innerHTML = card.front;
+
+            const backTxt = document.createElement("p");
+            backTxt.innerHTML = card.back;
+            
+            cardFront.appendChild(frontTxt);
+            cardBack.appendChild(backTxt);
+
+            cards.appendChild(cardFront);
+            cards.appendChild(cardBack);
+            console.log(cards);
+            cardsContainerList.appendChild(cards);
         });
     }
 </script>

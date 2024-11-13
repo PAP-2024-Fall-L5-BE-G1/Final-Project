@@ -79,7 +79,7 @@ async function getSets() {
             setBox.id = i; 
 
             const setName = document.createElement("h1");
-            setName.innerHTML = `<a href="view-set.html?id=${i}">${set.name}</a>`;
+            setName.innerHTML = `<a href="view-set.html?id=${i + 1}">${set.name}</a>`;
             
             setBox.appendChild(setName);
             setContainer.appendChild(setBox);
