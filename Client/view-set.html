@@ -26,19 +26,19 @@
     <div class="cardview-wrap">
         <div class="card-view">
             <div class="card__inner">
-                <div class="card-face" id="card-front">
+                <div class="card-face card-front">
                     <h2>Lorem Ipsum</h2>
                 </div>
-                <div class="card-face" id="card-back">
+                <div class="card-face card-back">
                     <p>Hello this is the content of the back!!</p>
                 </div>
             </div>
         </div>
     </div>
     <div class="viewarrow-wrap">
-            <img src="images/back-arrow.png" alt="arrow pointing left" id="back-card">
-            <p id="setcount">1/10</p>
-            <img src="images/next-arrow.png" alt="arrow pointing right" id="next-card">
+            <img src="images/back-arrow.png" alt="arrow pointing left" id="back-btn-viewset" class="back-btn">
+            <p id="setcount">1/10</p> <!--Edit number to be # of cards in set & the card viewer is seeing (if we are out of time, simply delete this feature)-->
+            <img src="images/next-arrow.png" alt="arrow pointing right" id="next-btn-viewset" class="next-btn">
     </div>
     <h3 id="listbelow-txt">Card list below</h3>
     <div class="cardlist-wrap">
@@ -51,6 +51,34 @@
             </div>
         </div>
     </div>
+    <script>
+        const cardlist = document.querySelectorAll('.card__inner');
+        cardslist.forEach((card)=>{
+            card.addEventListener('click', ()=> {
+                card.classList.toggle('is-flipped');
+            });
+        })
+
+        let scrollContainer = document.querySelector(".card-view");
+        let backBtn = document.querySelector(".back-btn");
+        let nextBtn = document.querySelector(".next-btn");
+
+        scrollContainer.addEventListener('wheel', (e) => {
+            e.defaultPrevented();
+            scrollContainer.scrollLeft += e.deltaY;
+            scrollContainer.style.scrollBehavior = 'auto';
+        });
+
+        nextBtn.addEventListener("click", () => {
+            scrollContainer.style.scrollBehavior = 'smooth';
+            scrollContainer.scrollLeft += 958;
+        });
+
+        backBtn.addEventListener("click", () => {
+            scrollContainer.style.scrollBehavior = 'smooth';
+            scrollContainer.scrollLeft -= 958;
+        });
+    </script>
 </body>
 
 <script>
