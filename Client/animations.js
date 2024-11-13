@@ -1,6 +1,6 @@
 let scrollContainer = document.querySelector("#setList");
-let backBtn = document.getElementById("back-btn");
-let nextBtn = document.getElementById("next-btn");
+let backBtn = document.querySelector(".back-btn");
+let nextBtn = document.querySelector(".next-btn");
 // const card = document.querySelector('.card__inner');
 
 // card.addEventListener('click', ()=> {
