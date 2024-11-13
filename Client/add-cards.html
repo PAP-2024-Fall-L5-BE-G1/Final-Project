@@ -25,6 +25,7 @@
 <body>
     <div class="cardForm-wrap">
         <h1 id="editset-title"> Edit Set</h1>
+        <h3 id = "link"></h3>
         <div class="cardForm">
             <form action="">
                 <label for="cardfront">Front:</label>
@@ -112,7 +113,11 @@
             cards.appendChild(cardBack);
             console.log(cards);
             cardsContainer.appendChild(cards);
+
         });
+
+        const link = document.getElementById("link");
+        link.innerHTML = `<a href="view-set.html?id=${setId}">View Set</a>`;
     }
 </script>
 
