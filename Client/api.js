@@ -27,7 +27,7 @@ onCardCreate = (front, back, setId) => {
 
 //Get all sets 
 getSet = () => {
-    return fetch('/api/sets')
+    return fetch('localhost:3000/api/sets')
         .then(res => {
             if (!res.ok) {
                 throw new Error('Failed to fetch sets');
