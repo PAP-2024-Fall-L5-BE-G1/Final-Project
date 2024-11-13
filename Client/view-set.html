@@ -81,9 +81,88 @@
     </script>
 </body>
 
-<script src = "api.js"></script>
 <script>
-    const cards = await getCardsInSet(setId);
-    //load each card into the html
+let params = new URLSearchParams(document.location.search);
+let setId = params.get("setId");
+// Function to get all sets
+async function getCardsSets(setId) {
+    try {
+        const response = await fetch(`http://localhost:3000/api/sets/${setId}/cards`);
+        if (!response.ok) throw new Error('Failed to fetch sets');
+        const cards = await response.json();
+        return cards;
+    } catch (error) {
+        console.error('Error fetching cards in set:', error.message);
+    }
+}
+    window.onload = async function () {
+        let params = new URLSearchParams(document.location.search);
+        let id = params.get("id");
+        console.log(id)
+        const cards = await getCardsSets(id) 
+        const cardsContainer = document.querySelector(".cardview-wrap");
+        console.log(cardsContainer)
+        cards.forEach((cards, i) => {
+        
+        //card view
+        const cardview = document.createElement("div");
+        cardview.classList.add("card-view");
+        //the card wrap
+        const card_inner = document.createElement("div");
+        card_inner.classList.add("card__inner");
+        card_inner.id = i; 
+        //front side
+
+        const card_face_front = document.createElement("div");
+        card_face_front.classList.add("card-face");
+        card_face_front.classList.add("card-front");
+        
+        const card_face_front_text = document.createElement("h2");
+        card_face_front_text.innerText = cards.front;
+
+        //back side
+
+        const card_face_back = document.createElement("div");
+        card_face_back.classList.add("card-face");
+        card_face_back.classList.add("card-back");
+        
+        const card_face_back_text = document.createElement("p");
+        card_face_back_text.innerText = cards.back;
+
+        card_face_front.appendChild(card_face_front_text);
+        card_face_back.appendChild(card_face_back_text);
+        card_inner.appendChild(card_face_front);
+        card_inner.appendChild(card_face_back);
+        cardview.appendChild(card_inner);
+        cardsContainer.appendChild(cardview);
+        });
+
+        const cardsContainerList = document.querySelector(".cardlist-wrap");
+        cards.forEach((card, i) => {
+
+            const cards = document.createElement("div");
+            cards.classList.add("cards");
+
+            const cardFront = document.createElement("div");
+            cardFront.classList.add("li-card-front-txt");
+
+            const cardBack = document.createElement("div");
+            cardBack.classList.add("li-card-back-txt");
+
+            const frontTxt = document.createElement("p");
+            frontTxt.innerHTML = card.front;
+
+            const backTxt = document.createElement("p");
+            backTxt.innerHTML = card.back;
+            
+            cardFront.appendChild(frontTxt);
+            cardBack.appendChild(backTxt);
+
+            cards.appendChild(cardFront);
+            cards.appendChild(cardBack);
+            console.log(cards);
+            cardsContainerList.appendChild(cards);
+        });
+    }
 </script>
 </html>

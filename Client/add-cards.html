@@ -54,12 +54,81 @@
         </div>
     </div>
 </body>
-<script src = "api.js"></script>
 <script>
-    await onSetCreate(setName);
-    addcard-btn.addEventListener('click', async() => { 
-        if(front !== '' && back !== ''){
-            await onCardCreate(front, back, setId)
-        }});
+    let params = new URLSearchParams(document.location.search);
+    let setId = params.get("setId");
+    //get info from front and back
+    //add info to db
+    // Function to add a new card to a set
+    async function addCard(setId) {
+        const front = document.getElementById("cardfront").value;
+        const back = document.getElementById("cardback").value;
+        try {
+            const response = await fetch('http://localhost:3000/api/cards', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ front, back, setId })
+            });
+            if (!response.ok) throw new Error('Failed to add card');
+            return await response.json();
+        
+        } catch (error) {
+            console.error('Error adding card:', error.message);
+        }
+    }
+
+    // Function to get all cards
+    async function getCards(setId) {
+        try {
+            const response = await fetch(`http://localhost:3000/api/sets/${setId}/cards`);
+            if (!response.ok) throw new Error('Failed to fetch sets');
+            const cards = await response.json();
+            return cards;
+        } catch (error) {
+            console.error('Error fetching sets:', error.message);
+        }
+    }
+    //refreash page keep the current setId there
+    const btn = document.getElementById("addcard-btn");
+    btn.addEventListener('click', onButtonClick);
+    
+    async function onButtonClick(event) {
+        event.preventDefault();
+        await addCard(setId);
+        console.log("added card to set");
+        location.href = `add-cards.html?setId=${setId}`;
+    }
+
+
+    window.onload = async function () {
+        const cards = await getCards(setId);
+        const cardsContainer = document.querySelector(".cardlist-wrap");
+        cards.forEach((card, i) => {
+
+            const cards = document.createElement("div");
+            cards.classList.add("cards");
+
+            const cardFront = document.createElement("div");
+            cardFront.classList.add("li-card-front-txt");
+
+            const cardBack = document.createElement("div");
+            cardBack.classList.add("li-card-back-txt");
+
+            const frontTxt = document.createElement("p");
+            frontTxt.innerHTML = card.front;
+
+            const backTxt = document.createElement("p");
+            backTxt.innerHTML = card.back;
+            
+            cardFront.appendChild(frontTxt);
+            cardBack.appendChild(backTxt);
+
+            cards.appendChild(cardFront);
+            cards.appendChild(cardBack);
+            console.log(cards);
+            cardsContainer.appendChild(cards);
+        });
+    }
 </script>
+
 </html>
